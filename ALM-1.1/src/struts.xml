@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">  
+        <action name="registAction_regist" class="com.db.action.RegistAction" method="regist">  
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>  
+        
+         <action name="registAction_login" class="com.db.action.RegistAction" method="login">  
+            <result name="success">shouye.jsp</result>
+			<result name="error">index.jsp</result>
+        </action>  
+        
+        <action name="orderAction_updata" class="com.db.action.OrderAction" method="updata">  
+            <result name="success">Orders.jsp</result>
+            <result name="error">Orders.jsp</result>
+        </action> 
+        
+         <action name="orderAction_delete" class="com.db.action.OrderAction" method="delete">  
+            <result name="success" type="chain">orderAction_select</result>
+            <result name="error">Orders.jsp</result>
+        </action> 
+        
+         <action name="orderAction_add" class="com.db.action.OrderAction" method="add">  
+            <result name="success" >Orders.jsp</result>
+            <result name="error">Orders.jsp</result>
+        </action> 
+        
+        <action name="orderAction_select" class="com.db.action.OrderAction" method="select">  
+            <result name="success">yuyue.jsp</result>
+            <result name="error">Login.jsp</result>
+        </action> 
+        
+        <action name="registAction_tc" class="com.db.action.RegistAction" method="tc">  
+            <result name="success">shouye.jsp</result>
+            <result name="error">Login.jsp</result>
+        </action> 
+    </package>  
+</struts>    
