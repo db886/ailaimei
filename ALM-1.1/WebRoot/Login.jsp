@@ -1,48 +1,49 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ include file="head.jsp"%>
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
   <head>
-    <base href="<%=basePath%>">   
-    <title>欢迎注册</title>    
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-	<style type="text/css">
-	    *{margin:0px;padding:0px;}
-		#beijing{
-			background: url(image/beijin1.jpg) no-repeat;
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'newlogin.jsp' starting page</title>
+    <style type="text/css">
+    	#maxdiv{
+    		width: 1300px;
+    		margin: 0 auto;
+    		margin-top:160px;
+    		border:1px solid transparent;
+    	}
+    	#tupian{
+    		background: url(image/beijin1.jpg) no-repeat;
 			width: 600px;
 			height: 400px;
-			margin-left: 100px;
-			margin-top: 150px;
+    		margin-top:100px;
 			float: left;
-		}
-		#login{
-			position:absolute;
-			top: 100px;
-			left: 950px;
-			width: 420px;
+    	}
+    	#denglu{
+    		width: 420px;
 			height: 500px;
 			background:url(image/meitu_3.jpg);
-			color: #666666;
-		}
-		.login1{
-			height: 40px;
-			width: 120px;
-			position:absolute;
-			top:40px;
-			left:150px;
-			font-size: 22px;
-		}
-		.login3{
+    		margin-left:880px;
+    		border:1px solid transparent;
+    	}
+    	.login3{
 			height: 300px;
 			width: 360px;
-			background:url(image/meitu_6.jpg) no-repeat 2px 15px;
-			padding-top: 10px;
-			position:absolute;
-			top:100px;
-			left:25px;
+			margin:0 auto;
+			background:url(image/meitu_6.jpg) no-repeat 2px 75px;
+			padding-top: 70px;
+			text-align: center;
+		}
+		.login1{
+			width: 200px;
+			height: 40px;
+			margin:0 auto;
+			font-size:30px;
+			margin-top:10px;
+			font-family:"微软雅黑";
+			line-height: 40px;
 			text-align: center;
 		}
 		#userform input{
@@ -61,22 +62,23 @@
 		#newdaohang{
 			display: none;
 		}
-		
-	</style>
-  </head>
-  
-  <body>
-  	<div id="beijing"></div>
-    <div id="login">
-    	<div class="login1"><p>登录艾莱美</p></div>
-    	<div class="login3">
-    		<form id="userform" action="registAction_login" method="post">
-               	<input class="username" placeholder="请输入用户名" type="text" name="username">
-               	<input class="mathpass" placeholder="请输入验证码" type="text" name="mathpass">
-    			<input class="pass" placeholder="请输入密码" type="password" name="pass">
-    			<input class="submit" type="submit" value="立即登录">
-    	   	</form>
+    </style>
+</head>
+<body>
+	<div id="maxdiv">
+		<div id="tupian"></div>
+		<div id="denglu">
+			<div class="login1"><p>登录艾莱美</p></div>
+    		<div class="login3">
+    			<form id="userform" action="registAction_login" method="post">
+               		<input class="username" placeholder="请输入用户名" type="text" name="username">
+               		<input class="mathpass" placeholder="请输入验证码" type="text" name="mathpass">
+    				<input class="pass" placeholder="请输入密码" type="password" name="pass">
+    				<input class="submit" type="submit" value="立即登录">
+    	   		</form>
       	</div>
-    </div>
-  </body>
+		
+		</div>
+	</div>   
+</body>
 </html>
