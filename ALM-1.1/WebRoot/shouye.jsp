@@ -10,16 +10,17 @@
     	*{margin:0px;padding:0px;}
     	.zhuti{
     		width: 1000px;
+    		height:1200px;
     		position:absolute;
-			left:200px;
-    		top:100px;
+    		top:203px;
+    		left:50%;
+    		margin-left:-500px;
     		font-family: "微软雅黑";
     	}
     	.celang{
     		width: 200px;
     		height: 400px;
     		position:absolute;
-    		top:60px;
     		background: url("image/celang.jpg") no-repeat;
     		padding-top: 18px;
     	}
@@ -28,7 +29,6 @@
     		height: 400px;
     		position:absolute;
     		left:200px;
-    		top:60px;
     		background: url("image/daohang.jpg");
        	}
        	#p1{
@@ -60,7 +60,6 @@
     		height: 400px;
     		position:absolute;
     		left:800px;
-    		top:60px;
 		}
 		#c2p1{
 			width: 100%;
@@ -111,7 +110,7 @@
 			width: 100%;
 			height: 600px;
 			position: absolute;
-			top: 460px; 
+			top: 400px; 
 		}
 		#huodong1{
 			width: 250px;
@@ -120,17 +119,19 @@
 			cursor: pointer;
 		}
 		#xiangmu{
-			width: 550px;;
-       		height: 350px;
+			width: 200px;;
        		display: none;
        		position:absolute;
-       		background: #fff;
+       		background: #F8F3D5;
 		}
 		#xiangmu ul li{
 			list-style: none;
-			font-size: 25px;
-			width: 80px;
+			font-size: 20px;
+			width: 120px;
 			height: 40px;
+			line-height:40px;
+			padding-left: 50px;
+			cursor: pointer;
 		}
     </style>
 </head>
@@ -158,18 +159,26 @@
 	function xiangmuout(){
 		document.getElementById("xiangmu").style.display='none';
 	}
+	function wenxiu(){
+		document.getElementById("val").value="纹绣";
+		document.getElementById("xms").submit();
+	}
+	function huamei(){
+		document.getElementById("val").value="画眉";
+		document.getElementById("xms").submit();
+	}
  </script>
  
   <body>
     <div class="zhuti">
     	<div class="celang" id="celang">
     		<ul>
-    			<li onmouseover="xiangmu()" onmouseout="xiangmuout()" >纹绣</li>
-    			<li><a href="">摸咪咪</a> </li>
-    			<li><a href="">吃鸡鸡</a> </li>
-    			<li><a href="">按摩</a> </li>
-    			<li><a href="">睡觉</a> </li>
-    			<li><a href="">画眉</a> </li>
+    			<li onmouseover="xiangmu()" onmouseout="xiangmuout()" >眼部</li>
+    			<li><a href="">敬请期待</a> </li>
+    			<li><a href="">敬请期待</a> </li>
+    			<li><a href="">敬请期待</a> </li>
+    			<li><a href="">敬请期待</a> </li>
+    			<li><a href="">敬请期待</a> </li>
     		</ul>
     	</div>
     	
@@ -179,12 +188,15 @@
     		<div id="p3"></div>
     		<div id="xiangmu" onmouseover="xiangmu()" onmouseout="xiangmuout()" >
     			<ul>
-    				<li><a href="">摸咪咪</a> </li>
-    				<li><a href="">吃鸡鸡</a> </li>
-    				<li><a href="">按摩</a> </li>
-    				<li><a href="">睡觉</a> </li>
-    				<li><a href="">画眉</a> </li>
+    				<li><a onclick="wenxiu()">纹绣</a> </li>
+    				<li><a onclick="huamei()">画眉</a> </li>
+    				<li><a href="">敬请期待</a> </li>
+    				<li><a href="">敬请期待</a> </li>
+    				<li><a href="">敬请期待</a> </li>
     			</ul>
+    			<form action="xm_select" method="post" id="xms">
+    					<input type="hidden" name="xiangmubiaoti" id="val" >
+    			</form>
     		</div>  		
     	</div>
     	

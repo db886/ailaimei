@@ -9,10 +9,11 @@
     <style type="text/css">
        *{margin:0px;padding:0px;}
     	#myyuyue{
-    		width: 900px;
-    		position: absolute;    		
-    		left: 250px;
-    		top: 160px;
+    		width: 1000px;
+    		position: absolute; 		
+    		left: 50%;
+    		margin-left:-500px;
+    		top: 203px;
     	}
     	#myyuyue1{
     		width: 100%;
@@ -105,8 +106,18 @@
     		margin-left: 70px;
     		line-height: 50px;
     	}
-    	
+    	img{
+    		height: 80px;
+    		width: 80px;
+    	}
     </style>
+    
+    <script type="text/javascript">
+    	function goods(obj){
+    		document.getElementById("val").value=obj.innerHTML;
+			document.getElementById("xms").submit();
+		}
+    </script>
     </head>
 	<body>
    		<div id="myyuyue">
@@ -115,8 +126,9 @@
    			<div class="myyuyue2">
    				<div class="xinxi1"><span>2017-02-08</span><span>订单号：<s:property value="no" /></span></div>
    				<div class="xinxi2">
-   					<div class="tupian"><img src="image/tupian1.jpg"></div>
-   					<div class="biaoti"><a href=""><s:property value="dome" /></a> </div>
+   					<div class="tupian"><img src="<s:property value="xiangmutupian" />"></div>
+   					<div class="biaoti"><a onclick="goods(this)"><s:property value="dome" /></a>
+   					</div>
    					<div class="jiage"><span><s:property value="price" /></span></div>
    					<div class="stuats"><span><s:property value="status" /></span></div>
    					<div class="pingjia"><span>未评价</span></div>
@@ -128,6 +140,9 @@
    				</div>  				
    			</div>
    			</s:iterator>
+   			<form action="xm_select" method="post" id="xms">
+    			<input type="hidden" name="xiangmubiaoti" id="val" >
+    		</form>
    		</div>
 	</body>
 </html>

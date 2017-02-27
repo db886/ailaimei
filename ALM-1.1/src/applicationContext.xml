@@ -7,7 +7,7 @@
 
 
 	<bean id="dataSource"
-		class="org.apache.commons.dbcp.BasicDataSource">
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/dabao?useUnicode=true&amp;characterEncoding=UTF-8">
 		</property>
@@ -30,7 +30,10 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/db/model/Orders.hbm.xml</value>
-				<value>com/db/model/User.hbm.xml</value></list>
+				<value>com/db/model/User.hbm.xml</value>
+				<value>com/db/model/Xiangmu.hbm.xml</value>
+				<value>com/db/model/Wenda.hbm.xml</value>
+				<value>com/db/model/Wenti.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -62,8 +65,38 @@
 		<property name="orderDao" ref="orderDao" />
 	</bean>
 	
+	<bean id="xmd"
+		class="com.db.utils.XiangmuDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="xma"
+		class="com.db.action.XiangmuAction">
+		<property name="xmd" ref="xmd" />
+	</bean>
+	
+	<bean id="wdd"
+		class="com.db.utils.WendaDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="wds"
+		class="com.db.service.WendaService">
+		<property name="wdd" ref="wdd" />
+	</bean>
+	
+	<bean id="wda"
+		class="com.db.action.WendaAction">
+		<property name="wds" ref="wds" />
+	</bean>
 
+	<bean id="wta"
+		class="com.db.action.WentiAction">
+		<property name="wds" ref="wds" />
+	</bean>	
 	
-	
-	
+	<bean id="wdsa"
+		class="com.db.action.WendaSetAction">
+		<property name="wds" ref="wds" />
+	</bean>	
 	</beans>

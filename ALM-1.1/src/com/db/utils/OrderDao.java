@@ -46,7 +46,7 @@ public class OrderDao {
 	public List<Orders> selectOrder(String username){
 		session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
-		String hql = "from Orders where username=?";
+		String hql = "from Orders where username=? order by no desc";
 		@SuppressWarnings("unchecked")
 		List<Orders> list = session.createQuery(hql).setParameter(0, username).list();		
 		transaction.commit();

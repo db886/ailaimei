@@ -9,7 +9,7 @@ public class RegistAction extends ActionSupport implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user;
 	private RegistServiceImp rsi;
-	private String result;
+	private String tishi;
 	public String regist(){
 		if(user != null){
 			 java.util.Date  date=new java.util.Date();
@@ -17,10 +17,10 @@ public class RegistAction extends ActionSupport implements ModelDriven<User>{
 			 user.setRegisttime(data1);
 		}
 		if(rsi.addUser(user)){
-			result = "×¢²á³É¹¦";
+			tishi="×¢²á³É¹¦";
 			return SUCCESS;
 		}
-		result = "×¢²áÊ§°Ü";
+		tishi="×¢²áÊ§°Ü";
 		return ERROR;
 	}
 	public String login(){
@@ -28,7 +28,7 @@ public class RegistAction extends ActionSupport implements ModelDriven<User>{
 			ActionContext.getContext().getSession().put("user", user);			
 			return SUCCESS;
 		}
-		result = "µÇÂ¼Ê§°Ü";
+		tishi="µÇÂ¼Ê§°Ü";
 		return ERROR;
 	}
 	public String tc(){
@@ -47,17 +47,17 @@ public class RegistAction extends ActionSupport implements ModelDriven<User>{
 	public void setRsi(RegistServiceImp rsi) {
 		this.rsi = rsi;
 	}
-	public String getResult() {
-		return result;
-	}
-	public void setResult(String result) {
-		this.result = result;
-	}
 	@Override
 	public User getModel() {
 		if(user==null){
 			user = new User();
 		}
 		return user;
+	}
+	public String getTishi() {
+		return tishi;
+	}
+	public void setTishi(String tishi) {
+		this.tishi = tishi;
 	}
 }

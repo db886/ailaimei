@@ -12,8 +12,11 @@ public class OrderAction extends ActionSupport implements ModelDriven<Orders> {
 	private OrderDao orderDao;
 	private Orders order;
 	private List<Orders> list;
-	private String tishi="ÄãÃÃ°¡";
+	private String tishi;
 	public String add(){
+		if(order.getUsername().equals("")){
+			return ERROR;
+		}
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		String no = formatter.format(new Date());
 		order.setNo(no);
@@ -48,6 +51,7 @@ public class OrderAction extends ActionSupport implements ModelDriven<Orders> {
 			list = orderDao.selectOrder(order.getUsername());
 			return SUCCESS;
 		} else{
+			tishi="ÇëÏÈµÇÂ¼";
 			return ERROR;
 		}
 	}
