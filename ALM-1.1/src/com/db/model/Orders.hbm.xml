@@ -23,7 +23,10 @@
             <column name="status" length="10" not-null="true" />
         </property>
         <property name="xiangmutupian" type="java.lang.String">
-            <column name="xiangmutupian" length="50" />
+            <column name="xiangmutupian" length="50" not-null="true" />
+        </property>
+        <property name="xiangmuid" type="java.lang.String">
+            <column name="xiangmuid" length="20" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

@@ -21,7 +21,8 @@
 			position: absolute;
 			top: 503px;
 			left: 50%;
-			margin-left: -500px;		
+			margin-left: -500px;
+			font-family: "微软雅黑";	
 		}
 		#wendadaohang{
 			width: 100%;
@@ -34,11 +35,25 @@
 			float:left;
 			line-height: 40px;
 		}
+		#wendazhuti2{
+    		width: 100%;
+    	}
 		.wenda{
     		width: 100%;
     		height: 140px;
     		border: 1px solid #E8E8E8; 
     		margin-top: 15px;
+    		padding: 20px;
+    	}
+    	.wenda1{
+    		width: 100%;
+    		height: 60px;
+    		border-bottom: 2px solid #DFDFDF;
+    		
+    	}
+    	.wenda2{
+    		width: 100%;
+    		height: 80px;
     	}
     	.page{
     		width: 100%;
@@ -50,26 +65,60 @@
     		line-height: 40px;
     		float: left;
     	}
+    	.s1{
+    		font-size: 20px;
+    		color: #333333;
+    		text-decoration:underline
+    	}
+    	.s2{
+    		color: #666666;
+    	}
 	</style>
 	<script type="text/javascript">
+		function chaxunye(i){
+			var d1 = "<div class='wenda1'><span class='s1'>";
+			var d2 = "</span></div><div class='wenda2'><span class='s2'>";
+			var d6 = "<span>";
+			var d3 = "</div>";
+			var d4 = "问：";
+			var d7 = "答：";
+			var d5 = "<div class='wenda'>";			
+			$.ajax({
+				type:"post",
+				url: "ajax/wendaAjax.action",
+				data:{"nowPage":i},
+				success:function(data){
+					if(i>data.allPageCount||i<1){
+						alert("没有了哦");
+					}else{
+						$("#nowPage").val(i);
+						$("#wendazhuti2").html(" ");
+						$.each(data.nowPageData,function(index,list){	
+							$("#wendazhuti2").append(d5+d1+d4+list.userq+d2+d7+list.doctora+d6+d3+d3);
+						})
+					}
+				},
+				error:function(){
+					alert("hhhhhhhh");
+				}
+			})
+			scrollTo(0,450);
+		}
 		function xiayiye(){
-			var i = document.getElementById('nowPage').value;
-			document.getElementById('nowPage').value=++i;
-			document.getElementById('wd1').submit();
+			var i = $("#nowPage").val();
+			var i = ++i
+			chaxunye(i);
 		}
 		function shangyiye(){
-			var i = document.getElementById('nowPage').value;
-			document.getElementById('nowPage').value=--i;
-			document.getElementById('wd1').submit();
+			var i = $("#nowPage").val()-1;
+			chaxunye(i);
 		}
 		function shouye(){
-			document.getElementById('nowPage').value="1";
-			document.getElementById('wd1').submit();
+			chaxunye(1);
 		}
 		function moye(){
-			var i = document.getElementById('allPageCount').value;
-			document.getElementById('nowPage').value=i;
-			document.getElementById('wd1').submit();
+			var i = $("#allPageCount").val();
+			chaxunye(i);
 		}
 	</script>
   </head>
@@ -81,21 +130,24 @@
     		<div class="daohang">热门问答</div>
     		<div class="daohang"><a href="tiwen.jsp">我要咨询</a> </div>
     	</div>
-    	<s:iterator value="page.nowPageData">
-    	<div class="wenda">
-    		<div class="wenda1"><s:property value="username" />:<s:property value="userq" /></div>
-    		<div class="wenda2"><s:property value="doctorname" />:<s:property value="doctora" /></div>
-    	</div>
-    	</s:iterator>
+    	
+		<div id="wendazhuti2">
+    		<s:iterator value="page.nowPageData">
+    		<div class="wenda">
+    			<div class="wenda1"><span class='s1'>问：<s:property value="userq"/></span> </div>
+    			<div class="wenda2"><span class='s2'>答：<s:property value="doctora"/></span> </div>
+    		</div>
+    		</s:iterator>
+		</div>		
+
+
     	<div class="page">
     		<div class="page1" onclick="shouye()">首页</div>
     		<div class="page1" onclick="shangyiye()">上一页</div>
     		<div class="page1" onclick="xiayiye()">下一页</div>
     		<div class="page1" onclick="moye()">末页</div>
-    		<form action="wd_select" method="post" id="wd1">
-				<input type="hidden" name="nowPage" value="${page.nowPage }" id="nowPage">
-			</form> 
     	</div>
+    	<input type="hidden" name="nowPage" value="${page.nowPage }" id="nowPage">
     	<input type="hidden" value="${page.allPageCount }" id="allPageCount">
     </div>
   </body>

@@ -6,8 +6,8 @@
 -->
 <hibernate-mapping>
     <class name="com.db.model.Xiangmu" table="xiangmu" catalog="almuser">
-        <id name="xiangmuid" type="java.lang.Long">
-            <column name="xiangmuid" />
+        <id name="xiangmuid" type="java.lang.String">
+            <column name="xiangmuid" length="20" />
             <generator class="assigned" />
         </id>
         <property name="xiangmutupian" type="java.lang.String">

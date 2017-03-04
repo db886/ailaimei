@@ -8,6 +8,10 @@ public class Wenti implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String wentiid;
 	private String username;
 	private String userq;

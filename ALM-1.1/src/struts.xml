@@ -29,7 +29,7 @@
         
         <action name="orderAction_select" class="com.db.action.OrderAction" method="select">  
             <result name="success">yuyue.jsp</result>
-            <result name="error">Login.jsp</result>
+            <result name="error">almlogin.jsp</result>
         </action> 
         
         <action name="registAction_tc" class="com.db.action.RegistAction" method="tc">  
@@ -76,5 +76,31 @@
             <result name="success" type="chain" >ht_wd_select</result>
             <result name="error">Login.jsp</result>
         </action>             
-    </package>  
+    </package>
+    
+    <package name="ajaxAction" namespace="/ajax" extends="json-default" >
+    	<action name="wendaAjax" class="com.db.action.WendaAction" method="selectwd" >
+    		<result name="success" type="json">
+    			<param name="root">page</param>
+    		</result>
+    	</action>
+    	
+    	<action name="loginAjax" class="com.db.action.RegistAction" method="login" >
+    		<result name="success" type="json">
+    			<param name="root">result</param>
+    		</result>
+    		<result name="error" type="json">
+    			<param name="root">result</param>
+    		</result>
+    	</action>
+    	
+    	<action name="registAjax" class="com.db.action.RegistAction" method="regist" >
+    		<result name="success" type="json">
+    			<param name="root">result</param>
+    		</result>
+    		<result name="error" type="json">
+    			<param name="root">result</param>
+    		</result>
+    	</action>
+    </package>
 </struts>    

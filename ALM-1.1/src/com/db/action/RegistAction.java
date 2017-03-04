@@ -9,26 +9,25 @@ public class RegistAction extends ActionSupport implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user;
 	private RegistServiceImp rsi;
-	private String tishi;
+	private String result;
 	public String regist(){
-		if(user != null){
-			 java.util.Date  date=new java.util.Date();
-			 java.sql.Date  data1=new java.sql.Date(date.getTime());
-			 user.setRegisttime(data1);
-		}
+		java.util.Date  date=new java.util.Date();
+		java.sql.Date  data1=new java.sql.Date(date.getTime());
+		user.setRegisttime(data1);
 		if(rsi.addUser(user)){
-			tishi="注册成功";
+			setResult("注册成功");
 			return SUCCESS;
 		}
-		tishi="注册失败";
+		setResult("用户名已存在");
 		return ERROR;
 	}
 	public String login(){
 		if(rsi.login(user)){
-			ActionContext.getContext().getSession().put("user", user);			
+			ActionContext.getContext().getSession().put("user", user);
+			result = "登录成功";
 			return SUCCESS;
 		}
-		tishi="登录失败";
+		setResult("账号或密码错误");
 		return ERROR;
 	}
 	public String tc(){
@@ -54,10 +53,10 @@ public class RegistAction extends ActionSupport implements ModelDriven<User>{
 		}
 		return user;
 	}
-	public String getTishi() {
-		return tishi;
+	public String getResult() {
+		return result;
 	}
-	public void setTishi(String tishi) {
-		this.tishi = tishi;
+	public void setResult(String result) {
+		this.result = result;
 	}
 }

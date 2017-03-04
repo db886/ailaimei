@@ -13,7 +13,7 @@ public class XiangmuAction extends ActionSupport implements ModelDriven<Xiangmu>
 	private Xiangmu xm;
 	private XiangmuDao xmd;
 	public String selectxm(){
-		xm = xmd.select(xm.getXiangmubiaoti());
+		xm = xmd.select(xm.getXiangmuid());
 		return SUCCESS;
 	}
 	public Xiangmu getXm() {

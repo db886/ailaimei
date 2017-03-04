@@ -52,9 +52,6 @@
     		margin-top:15px;
     		margin-left: 10px;
     	}
-    	.biaoti a{
-    		color: #666666;
-    	}
     	.biaoti a:LINK{
     		text-decoration:none;
     	}
@@ -114,7 +111,8 @@
     
     <script type="text/javascript">
     	function goods(obj){
-    		document.getElementById("val").value=obj.innerHTML;
+    		var i = obj.title;
+    		document.getElementById("val").value=i;
 			document.getElementById("xms").submit();
 		}
     </script>
@@ -127,7 +125,10 @@
    				<div class="xinxi1"><span>2017-02-08</span><span>订单号：<s:property value="no" /></span></div>
    				<div class="xinxi2">
    					<div class="tupian"><img src="<s:property value="xiangmutupian" />"></div>
-   					<div class="biaoti"><a onclick="goods(this)"><s:property value="dome" /></a>
+   					<div class="biaoti" >
+   						<span onclick="goods(this)" title="<s:property value="xiangmuid" />">
+   						<s:property value="dome" />
+   						</span>
    					</div>
    					<div class="jiage"><span><s:property value="price" /></span></div>
    					<div class="stuats"><span><s:property value="status" /></span></div>
@@ -141,7 +142,7 @@
    			</div>
    			</s:iterator>
    			<form action="xm_select" method="post" id="xms">
-    			<input type="hidden" name="xiangmubiaoti" id="val" >
+    			<input type="hidden" name="xiangmuid" id="val" >
     		</form>
    		</div>
 	</body>

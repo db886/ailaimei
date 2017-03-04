@@ -66,7 +66,11 @@
 }
 
 #newdaohang ul {
-	margin-left: 260px;
+	width:1000px;
+	height:60px;
+	position: absolute;
+	left: 50%;
+	margin-left: -450px;
 }
 
 #newdaohang ul li {
@@ -147,6 +151,9 @@
 	padding-left: 50px;
 	cursor: pointer;
 }
+#almxm1 a{
+	color: #666666;
+}
 </style>
 </head>
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
@@ -171,20 +178,16 @@
 		document.getElementById("almxm1").style.display = 'none';
 	}
 	function wenxiu() {
-		document.getElementById("val").value = "纹绣";
+		document.getElementById("val").value = "1";
 		document.getElementById("xms").submit();
 	}
 	function huamei() {
-		document.getElementById("val").value = "画眉";
+		document.getElementById("val").value = "2";
 		document.getElementById("xms").submit();
 	}
 </script>
 
 <body>
-	<form action="orderAction_select.action" method="post" id="se">
-		<input type="hidden" value="${sessionScope.user.username}"
-			name="username">
-	</form>
 	<div id="head">
 		<div id="head1">
 			<div id="homepage">
@@ -196,8 +199,8 @@
 			</div>
 			<div id="head-navigation">
 				<ul>
-					<li><a href="Regist.jsp">注册</a>
-					<li><a href="Login.jsp">登录</a>
+					<li><a href="almregist.jsp">注册</a>
+					<li><a href="almlogin.jsp">登录</a>
 					<li><a href="">美容院地址</a>
 					<li><a>联系客服 110</a>
 				</ul>
@@ -221,11 +224,11 @@
 			<div id="allxm"  >
 				<ul>
 					<li onmouseover="almxm1()" onmouseout="almxm1out()">眼部</li>
-					<li><a href="">敬请期待</a></li>
-					<li><a href="">敬请期待</a></li>
-					<li><a href="">敬请期待</a></li>
-					<li><a href="">敬请期待</a></li>
-					<li><a href="">敬请期待</a></li>
+					<li>敬请期待</li>
+					<li>敬请期待</li>
+					<li>敬请期待</li>
+					<li>敬请期待</li>
+					<li>敬请期待</li>
 				</ul>
 			</div>
 
@@ -233,15 +236,20 @@
 				<ul>
 					<li><a onclick="wenxiu()">纹绣</a></li>
 					<li><a onclick="huamei()">画眉</a></li>
-					<li><a href="">敬请期待</a></li>
-					<li><a href="">敬请期待</a></li>
-					<li><a href="">敬请期待</a></li>
+					<li><a>敬请期待</a></li>
+					<li><a>敬请期待</a></li>
+					<li><a>敬请期待</a></li>
 				</ul>
-				<form action="xm_select" method="post" id="xms">
-					<input type="hidden" name="xiangmubiaoti" id="val">
-				</form>
 			</div>
-
+			
+			<form action="xm_select" method="post" id="xms">
+				<input type="hidden" name="xiangmuid" id="val">
+			</form>
+			
+			<form action="orderAction_select.action" method="post" id="se">
+				<input type="hidden" value="${sessionScope.user.username}" name="username">
+			</form>
+			
 			<div id="almxm2"></div>
 			<div id="almxm3"></div>
 		</div>

@@ -17,6 +17,7 @@ public class WendaDao {
 		Transaction transaction = session.beginTransaction();
 		resutl = (String) session.save(wenda);
 		transaction.commit();
+		session.close();
 		return resutl;
 	}
 	public int deletewd(String wendaid){
@@ -32,6 +33,7 @@ public class WendaDao {
 		List<Wenda> list  = session.createQuery(hql).setFirstResult(start).setMaxResults(end).list();
 		Transaction transaction = session.beginTransaction();
 		transaction.commit();
+		session.close();
 		return list;
 	}
 	public int selectadc(){
@@ -40,6 +42,7 @@ public class WendaDao {
 		Long adc =  (Long) sessionFactory.openSession().createQuery(hql).uniqueResult();
 		Transaction transaction = session.beginTransaction();
 		transaction.commit();
+		session.close();
 		return adc.intValue();
 		
 	}
@@ -49,7 +52,7 @@ public class WendaDao {
 		Transaction transaction = session.beginTransaction();
 		resutl = (String) session.save(wenti);
 		transaction.commit();
-		System.out.println(resutl);
+		session.close();
 		return resutl;
 	}
 	public List<Wenti> selectwt(){

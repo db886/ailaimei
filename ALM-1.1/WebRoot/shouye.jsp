@@ -160,11 +160,11 @@
 		document.getElementById("xiangmu").style.display='none';
 	}
 	function wenxiu(){
-		document.getElementById("val").value="纹绣";
+		document.getElementById("val").value="1";
 		document.getElementById("xms").submit();
 	}
 	function huamei(){
-		document.getElementById("val").value="画眉";
+		document.getElementById("val").value="2";
 		document.getElementById("xms").submit();
 	}
  </script>

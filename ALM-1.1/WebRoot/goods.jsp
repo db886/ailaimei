@@ -14,19 +14,12 @@
     		left: 50%;
     		margin-left:-500px;
     		top: 203px;
+    		font-family: "微软雅黑";
     	}
     	#goodstupian1{
     		width: 400px;
     		height: 300px;
     		position: absolute; 
-    		background: blue;
-    	}
-    	#goodstupian2{
-    		width: 400px;
-    		height: 100px;
-    		position: absolute; 
-    		top: 320px;
-    		background: #666666;
     	}
     	#goodsbiaoti{
     		width: 500px;
@@ -34,63 +27,58 @@
     		position: absolute; 
     		left: 420px;
     	}
-    	#biaoti{
+    	.goodsbiaoti1{
     		width: 100%;
     		height: 60px;
-    		background:#F1F1F1;
+    		line-height: 60px;
+    		border-bottom: 2px solid #DFDFDF;
+    	}
+    	#biaoti{
+    		line-height: 20px;
     	}
     	#jiage{
-    		width: 100%;
-    		height: 60px;
-    		background:#F1F1F1;
-    		margin-top: 10px;
-    		
+    		background: #F3F3F3;
     	}
-    	#shuoming{
-    		width: 100%;
-    		height: 60px;
-    		background:#F1F1F1;
-    		margin-top: 10px;
+    	#jg{
+    		color: #FC4343;
+    		font-size: 40px;
     	}
-    	#fukuangxx{
-    		width: 100%;
-    		height: 60px;
-    		background:#F1F1F1;
-    		margin-top: 10px;
+    	img{max-width:100%;height:300px;}
+    	#xiadan{
+    		width: 120px;
+    		height: 45px;
+    		cursor: pointer;
+    		border:none;
+    		margin-left:80px;
+    		font-size:20px;
+    		color:#fff;
+			background: url(image/meitu_7.jpg);
     	}
-    	#xxshuoming{
-    		width: 100%;
-    		height: 60px;
-    		background:#F1F1F1;
-    		margin-top: 10px;
+    	#dingdan{
+    		border-bottom: none;
     	}
-    	#yuding{
-    		width: 100%;
-    		height: 60px;
-    		background:#F1F1F1;
-    		margin-top: 10px;
+    	span{
+    		color: #999999;
     	}
-    	img{max-width:100%;max-height:100%}
     </style>
  </head>
   
  <body>
 	<div id="goods">
 		<div id="goodstupian1"><img src="${xm.xiangmutupian }"> </div>
-		<div id="goodstupian2"></div>
 		<div id="goodsbiaoti">
-			<div id="biaoti"><span>${xm.xiangmubiaoti }</span> </div>
-			<div id="jiage"><span>${xm.xiangmujiage }</span></div>
-			<div id="shuoming"><span>${xm.xiangmushuoming }</span></div>
-			<div id="fukuangxx"><span>${xm.xiangmuxiangqing }</span></div>
-			<div id="xxshuoming"></div>
-			<div id="yuding"><form action="orderAction_add" method="post">
+			<div class="goodsbiaoti1" id="biaoti"><h4>${xm.xiangmubiaoti }</h4> </div>
+			<div class="goodsbiaoti1" id="jiage">限时抢购：<span id="jg">${xm.xiangmujiage }</span></div>
+			<div class="goodsbiaoti1">购买须知：<span>${xm.xiangmushuoming }</span></div>
+			<div class="goodsbiaoti1">套餐内容：<span>${xm.xiangmuxiangqing }</span></div>
+			<div class="goodsbiaoti1" id="dingdan"><form action="orderAction_add" method="post">
 				<input type="hidden" name="dome" value="${xm.xiangmubiaoti }">
+				<input type="hidden" name="xiangmuid" value="${xm.xiangmuid }">
 				<input type="hidden" name="price" value="${xm.xiangmujiage }">
 				<input type="hidden" name="status" value="在线付款">
 				<input type="hidden" name="username" value="${user.username }">
 				<input type="hidden" name="xiangmutupian" value="${xm.xiangmutupian }">
-				<input type="submit"  value="立刻下单">
+				<input id="xiadan" type="submit"  value="立刻下单">
 			</form> </div>
 		</div>
 	</div>  

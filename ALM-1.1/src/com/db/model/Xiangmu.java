@@ -12,7 +12,7 @@ public class Xiangmu implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Long xiangmuid;
+	private String xiangmuid;
 	private String xiangmutupian;
 	private String xiangmubiaoti;
 	private Integer xiangmujiage;
@@ -26,13 +26,13 @@ public class Xiangmu implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Xiangmu(Long xiangmuid, Integer xiangmujiage) {
+	public Xiangmu(String xiangmuid, Integer xiangmujiage) {
 		this.xiangmuid = xiangmuid;
 		this.xiangmujiage = xiangmujiage;
 	}
 
 	/** full constructor */
-	public Xiangmu(Long xiangmuid, String xiangmutupian, String xiangmubiaoti, Integer xiangmujiage,
+	public Xiangmu(String xiangmuid, String xiangmutupian, String xiangmubiaoti, Integer xiangmujiage,
 			String xiangmushuoming, String xiangmuxiangqing) {
 		this.xiangmuid = xiangmuid;
 		this.xiangmutupian = xiangmutupian;
@@ -44,11 +44,11 @@ public class Xiangmu implements java.io.Serializable {
 
 	// Property accessors
 
-	public Long getXiangmuid() {
+	public String getXiangmuid() {
 		return this.xiangmuid;
 	}
 
-	public void setXiangmuid(Long xiangmuid) {
+	public void setXiangmuid(String xiangmuid) {
 		this.xiangmuid = xiangmuid;
 	}
 

@@ -29,7 +29,7 @@
 	<script type="text/javascript">
 		function niming(checkbox){
 			if(checkbox.checked == true){
-				$("#un").val("匿名用户");
+				$("#un").val("匿名");
 			}
 		}
 	</script>

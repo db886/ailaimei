@@ -9,7 +9,7 @@ public class XiangmuDao {
 	private SessionFactory sessionFactory;
 	public Xiangmu select(String string){
 		Session session = sessionFactory.openSession();
-		String sql= "from Xiangmu where xiangmubiaoti=?";
+		String sql= "from Xiangmu where xiangmuid=?";
 		Xiangmu xm=(Xiangmu) session.createQuery(sql).setParameter(0, string).uniqueResult();
 		return xm;
 	}
