@@ -2,14 +2,30 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
     <package name="default" namespace="/" extends="struts-default">  
-        <action name="registAction_regist" class="com.db.action.RegistAction" method="regist">  
+        <action name="registAction_regist" class="com.db.action.UserAction" method="regist">  
             <result name="success">Login.jsp</result>
             <result name="error">Login.jsp</result>
         </action>  
         
-         <action name="registAction_login" class="com.db.action.RegistAction" method="login">  
+         <action name="registAction_login" class="com.db.action.UserAction" method="login">  
             <result name="success">shouye.jsp</result>
 			<result name="error">Login.jsp</result>
+        </action>
+        
+         <action name="registAction_updata" class="com.db.action.UserAction" method="updata">  
+            <result name="success">shouye.jsp</result>
+			<result name="error">almlogin.jsp</result>
+        </action>  
+        
+         <action name="UserAction_xiugaimima" class="com.db.action.UserAction" method="xiugaimima">  
+            <result name="success">shouye.jsp</result>
+			<result name="error">almlogin.jsp</result>
+        </action>  
+        
+         <action name="UserAction_shezhitouxiang" class="com.db.action.UserAction" method="shezhitouxiang">  
+            <result name="success">shouye.jsp</result>
+			<result name="error">almlogin.jsp</result>
+			 <param name="savePath">/upload</param>  
         </action>  
         
         <action name="orderAction_updata" class="com.db.action.OrderAction" method="updata">  
@@ -32,8 +48,8 @@
             <result name="error">almlogin.jsp</result>
         </action> 
         
-        <action name="registAction_tc" class="com.db.action.RegistAction" method="tc">  
-            <result name="success">shouye.jsp</result>
+        <action name="registAction_tc" class="com.db.action.UserAction" method="tc">  
+            <result name="success">almlogin.jsp</result>
             <result name="error">Login.jsp</result>
         </action> 
         
@@ -85,7 +101,7 @@
     		</result>
     	</action>
     	
-    	<action name="loginAjax" class="com.db.action.RegistAction" method="login" >
+    	<action name="loginAjax" class="com.db.action.UserAction" method="login" >
     		<result name="success" type="json">
     			<param name="root">result</param>
     		</result>
@@ -94,7 +110,7 @@
     		</result>
     	</action>
     	
-    	<action name="registAjax" class="com.db.action.RegistAction" method="regist" >
+    	<action name="registAjax" class="com.db.action.UserAction" method="regist" >
     		<result name="success" type="json">
     			<param name="root">result</param>
     		</result>

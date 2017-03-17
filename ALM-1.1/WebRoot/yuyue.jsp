@@ -14,6 +14,7 @@
     		left: 50%;
     		margin-left:-500px;
     		top: 203px;
+    		font-family: "微软雅黑";
     	}
     	#myyuyue1{
     		width: 100%;

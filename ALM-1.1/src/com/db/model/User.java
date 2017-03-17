@@ -20,11 +20,12 @@ public class User implements java.io.Serializable {
 	private Date registtime;
 	private String personname;
 	private String sex;
-	private Integer age;
+	private String birthday;
 	private String address;
-	private Long telephone;
-	private Long qq;
-	private String email;
+	private String telephone = "Î´°ó¶¨";
+	private String qq = "Î´°ó¶¨";
+	private String email = "Î´°ó¶¨";
+	private String head = "image/morentouxiang.jpg";
 
 	// Constructors
 
@@ -33,28 +34,26 @@ public class User implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public User(String username, String pass, Date registtime, String personname, String sex, Integer age) {
+	public User(String username, String pass, Date registtime) {
 		this.username = username;
 		this.pass = pass;
 		this.registtime = registtime;
-		this.personname = personname;
-		this.sex = sex;
-		this.age = age;
 	}
 
 	/** full constructor */
-	public User(String username, String pass, Date registtime, String personname, String sex, Integer age,
-			String address, Long telephone, Long qq, String email) {
+	public User(String username, String pass, Date registtime, String personname, String sex, String birthday,
+			String address, String telephone, String qq, String email, String head) {
 		this.username = username;
 		this.pass = pass;
 		this.registtime = registtime;
 		this.personname = personname;
 		this.sex = sex;
-		this.age = age;
+		this.birthday = birthday;
 		this.address = address;
 		this.telephone = telephone;
 		this.qq = qq;
 		this.email = email;
+		this.head = head;
 	}
 
 	// Property accessors
@@ -107,12 +106,12 @@ public class User implements java.io.Serializable {
 		this.sex = sex;
 	}
 
-	public Integer getAge() {
-		return this.age;
+	public String getBirthday() {
+		return this.birthday;
 	}
 
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
 	public String getAddress() {
@@ -123,19 +122,19 @@ public class User implements java.io.Serializable {
 		this.address = address;
 	}
 
-	public Long getTelephone() {
+	public String getTelephone() {
 		return this.telephone;
 	}
 
-	public void setTelephone(Long telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 
-	public Long getQq() {
+	public String getQq() {
 		return this.qq;
 	}
 
-	public void setQq(Long qq) {
+	public void setQq(String qq) {
 		this.qq = qq;
 	}
 
@@ -145,6 +144,14 @@ public class User implements java.io.Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getHead() {
+		return this.head;
+	}
+
+	public void setHead(String head) {
+		this.head = head;
 	}
 
 }

@@ -11,34 +11,37 @@
             <generator class="identity" />
         </id>
         <property name="username" type="java.lang.String">
-            <column name="username" length="10" not-null="true" unique="true" />
+            <column name="username" length="50" not-null="true" unique="true" />
         </property>
         <property name="pass" type="java.lang.String">
-            <column name="pass" length="15" not-null="true" />
+            <column name="pass" length="50" not-null="true" />
         </property>
         <property name="registtime" type="java.util.Date">
             <column name="registtime" length="0" not-null="true" />
         </property>
         <property name="personname" type="java.lang.String">
-            <column name="personname" length="5" not-null="true" />
+            <column name="personname" length="50" />
         </property>
         <property name="sex" type="java.lang.String">
-            <column name="sex" length="1" not-null="true" />
+            <column name="sex" length="1" />
         </property>
-        <property name="age" type="java.lang.Integer">
-            <column name="age" not-null="true" />
+        <property name="birthday" type="java.lang.String">
+            <column name="birthday" length="50" />
         </property>
         <property name="address" type="java.lang.String">
             <column name="address" length="100" />
         </property>
-        <property name="telephone" type="java.lang.Long">
-            <column name="telephone" />
+        <property name="telephone" type="java.lang.String">
+            <column name="telephone" length="50" />
         </property>
-        <property name="qq" type="java.lang.Long">
-            <column name="qq" />
+        <property name="qq" type="java.lang.String">
+            <column name="qq" length="50" />
         </property>
         <property name="email" type="java.lang.String">
-            <column name="email" length="20" />
+            <column name="email" length="50" />
+        </property>
+        <property name="head" type="java.lang.String">
+            <column name="head" length="100" />
         </property>
     </class>
 </hibernate-mapping>

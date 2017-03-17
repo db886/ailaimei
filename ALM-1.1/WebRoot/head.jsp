@@ -17,32 +17,33 @@
 }
 
 #head {
-	height: 40px;
-	background: #BD0271;
 	font-family: "微软雅黑";
 }
-
-#head1 {
-	width: 1200px;
+#headback{
 	height: 40px;
+	background: #BD0271;
+}
+#head1 {
+	width: 1000px;
+	height:100%;
 	margin: 0 auto;
 }
 
-#head a {
+#head1 a {
 	color: #ffffff;
 }
 
-#head a:link {
+#head1 a:link {
 	color: #ffffff;
 	text-decoration: none;
 }
 
 #newdaohang a {
-	color: #000000;
+	color: inherit;
 }
 
 #newdaohang a:LINK {
-	color: #000000;
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -54,7 +55,7 @@
 }
 
 #head-navigation {
-	margin-left: 800px;
+	margin-left: 650px;
 }
 
 #head-navigation ul li {
@@ -77,30 +78,36 @@
 	list-style: none;
 	width: 110px;
 	height: 100%;
+	border-radius:80px;
 	line-height: 60px;
 	float: left;
 	font-size: 20px;
 	text-align: center;
+	color: #000000;
 }
 
 #newdaohang ul li:HOVER {
-	background: #FFF0F2;
+	background: #BD0271;
 	cursor: pointer;
+	color: #ffffff;
 }
-
 #newdaohang {
 	width: 100%;
 	height: 60px;
 	margin-top: 100px;
 	border-bottom: 3px solid #BD0271;
+	color: #000000;
 }
-
+#newdaohang:link{
+	color: #000000;
+}
 #dlh {
 	width: 250px;
 	height: 40px;
 	line-height: 40px;
 	margin-left: 50px;
 	float: left;
+	color: #ffffff;
 }
 
 #xmzhuti {
@@ -154,6 +161,9 @@
 #almxm1 a{
 	color: #666666;
 }
+#huanying{
+	
+}
 </style>
 </head>
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
@@ -189,12 +199,13 @@
 
 <body>
 	<div id="head">
+		<div id="headback">
 		<div id="head1">
 			<div id="homepage">
 				<a href="shouye.jsp">艾莱美首页</a>
 			</div>
 			<div id="dlh">
-				<a href="">欢迎您: ${sessionScope.user.username}</a>&nbsp;&nbsp;<a
+				欢迎您: &nbsp;<a href="geren.jsp" style="text-decoration: underline;" >${sessionScope.user.username}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
 					href="registAction_tc">退出</a>
 			</div>
 			<div id="head-navigation">
@@ -202,14 +213,15 @@
 					<li><a href="almregist.jsp">注册</a>
 					<li><a href="almlogin.jsp">登录</a>
 					<li><a href="">美容院地址</a>
-					<li><a>联系客服 110</a>
+					<li><a>联系客服 </a>
 				</ul>
 			</div>
 		</div>
-		<div id="newdaohang">
+		</div>
+		<div id="newdaohang" class="newdaohang">
 			<ul>
 				<li onmouseover="allxm()" onmouseout="allxmout()">艾莱美项目</li>
-				<li><a href="shouye.jsp">首页</a></li>
+				<li ><a href="shouye.jsp">首页</a></li>
 				<li><a onclick="cha()">我的预约</a></li>
 				<li>
 					<form action="wd_select" method="post" id="wd">

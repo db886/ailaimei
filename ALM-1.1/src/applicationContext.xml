@@ -47,12 +47,12 @@
 	</bean>
 	
 	<bean id="rsi"
-		class="com.db.service.RegistServiceImp">
+		class="com.db.service.UserServiceImp">
 		<property name="usi" ref="usi" />
 	</bean>
 	
 	<bean id="RegistAction"
-		class="com.db.action.RegistAction">
+		class="com.db.action.UserAction">
 		<property name="rsi" ref="rsi" />
 	</bean>
 	

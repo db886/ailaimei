@@ -8,6 +8,10 @@ public class Orders implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String no;
 	private String dome;
 	private String username;

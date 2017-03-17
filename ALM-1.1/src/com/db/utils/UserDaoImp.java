@@ -2,6 +2,8 @@ package com.db.utils;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
 import com.db.model.User;
 
 public class UserDaoImp {
@@ -32,5 +34,17 @@ public class UserDaoImp {
 		User u = (User) session.createQuery(hql).setParameter(0, user.getUsername()).uniqueResult();
 		return u;
 	}
-
+	public boolean updataUserDao(User user){
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		boolean result = false;
+		try {
+			session.update(user);
+			transaction.commit();
+            result = true;
+        } catch (Exception e) {
+        }
+		session.close();
+		return result;
+	}
 }
