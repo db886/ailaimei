@@ -63,6 +63,7 @@
     </style>
  </head>
   <script type="text/javascript">
+  
   	function jiance(){
   		var u = $(".username").val();
   		if(u==""){
