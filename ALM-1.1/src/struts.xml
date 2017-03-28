@@ -118,5 +118,24 @@
     			<param name="root">result</param>
     		</result>
     	</action>
+    	
+    	<action name="userNameSelectAjax" class="com.db.action.SelectUserAction" method="userNameSelect" >
+    		<result name="success" type="json">
+    			<param name="root">user</param>
+    		</result>
+    		<result name="error" type="json">
+    			<param name="root">user</param>
+    		</result>
+    	</action>
+    	
+    	<action name="registTimeSelectAjax" class="com.db.action.SelectUserAction" method="registTimeSelect" >
+    		<result name="success" type="json">
+    			<param name="root">page</param>
+    		</result>
+    		<result name="error" type="json">
+    			<param name="root">page</param>
+    		</result>
+    	</action>
+    	
     </package>
 </struts>    

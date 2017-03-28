@@ -62,7 +62,16 @@
     	}
     </style>
  </head>
-  
+  <script type="text/javascript">
+  	function jiance(){
+  		var u = $(".username").val();
+  		if(u==""){
+  			alert("请先登录");
+  		}else{
+  			$(".xiadan").submit();
+  		}
+  	}
+  </script>
  <body>
 	<div id="goods">
 		<div id="goodstupian1"><img src="${xm.xiangmutupian }"> </div>
@@ -71,14 +80,15 @@
 			<div class="goodsbiaoti1" id="jiage">限时抢购：<span id="jg">${xm.xiangmujiage }</span></div>
 			<div class="goodsbiaoti1">购买须知：<span>${xm.xiangmushuoming }</span></div>
 			<div class="goodsbiaoti1">套餐内容：<span>${xm.xiangmuxiangqing }</span></div>
-			<div class="goodsbiaoti1" id="dingdan"><form action="orderAction_add" method="post">
+			<div class="goodsbiaoti1" id="dingdan">
+			<form action="orderAction_add" method="post" class="xiadan">
 				<input type="hidden" name="dome" value="${xm.xiangmubiaoti }">
 				<input type="hidden" name="xiangmuid" value="${xm.xiangmuid }">
 				<input type="hidden" name="price" value="${xm.xiangmujiage }">
 				<input type="hidden" name="status" value="在线付款">
-				<input type="hidden" name="username" value="${user.username }">
+				<input type="hidden" name="username" value="${user.username }" class="username">
 				<input type="hidden" name="xiangmutupian" value="${xm.xiangmutupian }">
-				<input id="xiadan" type="submit"  value="立刻下单">
+				<input id="xiadan" type="button"  onclick="jiance()" value="立刻下单">
 			</form> </div>
 		</div>
 	</div>  

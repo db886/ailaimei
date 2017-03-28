@@ -195,6 +195,14 @@
 		document.getElementById("val").value = "2";
 		document.getElementById("xms").submit();
 	}
+	$(function(){ 
+		var i = $(".panduan-id").val();
+		if(i<1000&&i!=""){
+			$(".ht-xianshi").show();
+		}else{
+			$(".ht-xianshi").hide();
+		}
+	}); 
 </script>
 
 <body>
@@ -230,6 +238,8 @@
 				</li>
 				<li><a href="">热门</a></li>
 				<li><a href="">更多</a></li>
+				<li class="ht-xianshi"><a href="htyonghu.jsp">用户管理</a></li>
+				<li class="ht-xianshi"><a href="htwenti.jsp">问答管理</a></li>
 			</ul>
 		</div>
 		<div id="xmzhuti" onmouseover="allxm()" onmouseout="allxmout()">
@@ -260,6 +270,7 @@
 			
 			<form action="orderAction_select.action" method="post" id="se">
 				<input type="hidden" value="${sessionScope.user.username}" name="username">
+				<input type="hidden" value="${sessionScope.user.id}" name="id" class="panduan-id">
 			</form>
 			
 			<div id="almxm2"></div>

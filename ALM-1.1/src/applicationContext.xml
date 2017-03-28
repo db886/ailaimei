@@ -98,5 +98,11 @@
 	<bean id="wdsa"
 		class="com.db.action.WendaSetAction">
 		<property name="wds" ref="wds" />
+	</bean>
+	
+	<bean id="sua"
+		class="com.db.action.SelectUserAction">
+		<property name="rsi" ref="rsi" />
 	</bean>	
+	
 	</beans>

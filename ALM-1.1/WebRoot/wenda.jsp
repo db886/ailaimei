@@ -13,7 +13,7 @@
 			height: 300px;
 			position:absolute;
 			top:203px;
-			background: url("image/wendatupian.jpg");
+			background: url("image/wendatupian.jpg") no-repeat;
 			background-size: 100%;
 		}
 		#wendazhuti{

@@ -18,7 +18,7 @@ public class OrderAction extends ActionSupport implements ModelDriven<Orders> {
 			return ERROR;
 		}
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
-		String no = formatter.format(new Date());
+		String no = formatter.format(new Date())+(int)(Math.random()*100);
 		order.setNo(no);
 		String reuslt = orderDao.addOrder(order);
 		if(no.equals(reuslt)){

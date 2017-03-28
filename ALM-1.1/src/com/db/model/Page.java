@@ -7,7 +7,10 @@ public class Page {
 	private int eachPageCount = 10;
 	private int allPageCount;
 	private int allDataCount;
-	private List<Wenda> nowPageData;
+	private int start;
+	private int end;
+	private String string;
+	private List<?> nowPageData;
 	public int getNowPage() {
 		return nowPage;
 	}
@@ -32,13 +35,28 @@ public class Page {
 	public void setAllDataCount(int allDataCount) {
 		this.allDataCount = allDataCount;
 	}
-	public List<Wenda> getNowPageData() {
+	public int getStart() {
+		return start;
+	}
+	public void setStart(int start) {
+		this.start = start;
+	}
+	public int getEnd() {
+		return end;
+	}
+	public void setEnd(int end) {
+		this.end = end;
+	}
+	public String getString() {
+		return string;
+	}
+	public void setString(String string) {
+		this.string = string;
+	}
+	public List<?> getNowPageData() {
 		return nowPageData;
 	}
-	public void setNowPageData(List<Wenda> nowPageData) {
+	public void setNowPageData(List<?> nowPageData) {
 		this.nowPageData = nowPageData;
 	}
-
-	
-	
 }

@@ -26,11 +26,11 @@ public class WendaDao {
 		row = sessionFactory.openSession().createQuery(hql).setParameter(0, wendaid).executeUpdate();
 		return row;
 	}
-	public List<Wenda> selectAll(int start,int end){
+	public List<Object> selectAll(int start,int end){
 		String hql  = "from Wenda order by wendaid desc";
 		Session session = sessionFactory.openSession();
 		@SuppressWarnings("unchecked")
-		List<Wenda> list  = session.createQuery(hql).setFirstResult(start).setMaxResults(end).list();
+		List<Object> list  = session.createQuery(hql).setFirstResult(start).setMaxResults(end).list();
 		Transaction transaction = session.beginTransaction();
 		transaction.commit();
 		session.close();

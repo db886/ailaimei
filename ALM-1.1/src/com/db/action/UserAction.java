@@ -8,9 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.apache.struts2.ServletActionContext;
-
 import com.db.model.User;
 import com.db.service.UserServiceImp;
 import com.opensymphony.xwork2.ActionContext;
@@ -27,9 +25,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	private String touxiangContentType;
 
 	public String regist() {
-		java.util.Date date = new java.util.Date();
-		java.sql.Date data1 = new java.sql.Date(date.getTime());
-		user.setRegisttime(data1);
+		user.setRegisttime(new Date());
 		if (rsi.addUser(user)) {
 			setResult("×¢²á³É¹¦");
 			return SUCCESS;
@@ -49,17 +45,24 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	}
 
 	public String updata() {
-		User suser = (User) ActionContext.getContext().getSession().get("user");
-		if (suser != null) {
-			suser.setPersonname(user.getPersonname());
-			suser.setSex(user.getSex());
-			suser.setBirthday(user.getBirthday());
-			suser.setAddress(user.getAddress());
-			if (rsi.updataUserService(suser)) {
+		if(user.getId()!=null){
+			if (rsi.updataUserService(user)) {
 				return SUCCESS;
 			}
+			return ERROR;
+		}else{
+			User suser = (User) ActionContext.getContext().getSession().get("user");
+			if (suser != null) {
+				suser.setPersonname(user.getPersonname());
+				suser.setSex(user.getSex());
+				suser.setBirthday(user.getBirthday());
+				suser.setAddress(user.getAddress());
+				if (rsi.updataUserService(suser)) {
+					return SUCCESS;
+				}
+			}
+			return ERROR;
 		}
-		return ERROR;
 	}
 	public String xiugaimima(){
 		User suser = (User) ActionContext.getContext().getSession().get("user");

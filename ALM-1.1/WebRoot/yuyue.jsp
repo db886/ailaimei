@@ -33,6 +33,7 @@
     		height: 30px;
     		background:#F1F1F1;
     		line-height: 30px;
+    		padding-left: 20px;
     	}
     	.xinxi2{
     		width: 100%;
@@ -55,6 +56,10 @@
     	}
     	.biaoti a:LINK{
     		text-decoration:none;
+    	}
+    	.biaoti:HOVER{
+    		text-decoration: underline;
+    		cursor: pointer;
     	}
     	.jiage{
     		width: 100px;
@@ -123,7 +128,7 @@
    			<div id="myyuyue1"><span class="m1">项目</span><span class="m2">单价</span><span class="m3" >交易状态</span><span class="m4">评价</span><span class="m5" >操作</span></div>
    			<s:iterator value="list">
    			<div class="myyuyue2">
-   				<div class="xinxi1"><span>2017-02-08</span><span>订单号：<s:property value="no" /></span></div>
+   				<div class="xinxi1"><span>订单号：<s:property value="no" /></span></div>
    				<div class="xinxi2">
    					<div class="tupian"><img src="<s:property value="xiangmutupian" />"></div>
    					<div class="biaoti" >
